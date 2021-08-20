@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { ExampleComponent } from 'sweet-loading'
+import { LoadingSemicircle, LoadingBlocks, LoadingCircles } from 'sweet-loading'
 import 'sweet-loading/dist/index.css'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return <LoadingBlocks isLoading={true} />
 }
 
 export default App

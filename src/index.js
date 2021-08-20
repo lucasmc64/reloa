@@ -1,6 +1,5 @@
-import React from 'react'
-import styles from './styles.module.css'
+import LoadingBlocks from './components/Blocks/Loading'
+import LoadingCircles from './components/Circles/Loading'
+import LoadingSemicircle from './components/Semicircle/Loading'
 
-export const ExampleComponent = ({ text }) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
+export { LoadingBlocks, LoadingCircles, LoadingSemicircle }

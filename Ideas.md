@@ -1,0 +1,2 @@
+- Pacman animation
+- Rainbow animation

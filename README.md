@@ -1,13 +1,13 @@
-# sweet-loading
+# reloa
 
 > Loading animations for all tastes
 
-[![NPM](https://img.shields.io/npm/v/sweet-loading.svg)](https://www.npmjs.com/package/sweet-loading) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/reloa.svg)](https://www.npmjs.com/package/reloa) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save sweet-loading
+npm install --save reloa
 ```
 
 ## Usage
@@ -15,8 +15,7 @@ npm install --save sweet-loading
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'sweet-loading'
-import 'sweet-loading/dist/index.css'
+import MyComponent from 'reloa'
 
 class Example extends Component {
   render() {

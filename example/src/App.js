@@ -1,10 +1,24 @@
 import React from 'react'
 
-import { LoadingSemicircle, LoadingBlocks, LoadingCircles } from 'sweet-loading'
-import 'sweet-loading/dist/index.css'
+import {
+  Overlay,
+  EllipsisBlinking,
+  RollingBlocks,
+  GrowingCircles,
+  SpinningCircles,
+  SpinningSemicircle
+} from 'sweet-loading'
 
 const App = () => {
-  return <LoadingBlocks isLoading={true} />
+  return (
+    <Overlay>
+      <EllipsisBlinking />
+      <RollingBlocks />
+      <GrowingCircles />
+      <SpinningCircles />
+      <SpinningSemicircle />
+    </Overlay>
+  )
 }
 
 export default App

@@ -1,5 +1,16 @@
-import LoadingBlocks from './components/Blocks/Loading'
-import LoadingCircles from './components/Circles/Loading'
-import LoadingSemicircle from './components/Semicircle/Loading'
+import Overlay from './components/Overlay'
 
-export { LoadingBlocks, LoadingCircles, LoadingSemicircle }
+import EllipsisBlinking from './components/EllipsisBlinking'
+import GrowingCircles from './components/GrowingCircles'
+import RollingBlocks from './components/RollingBlocks'
+import SpinningCircles from './components/SpinningCircles'
+import SpinningSemicircle from './components/SpinningSemicircle'
+
+export {
+  Overlay,
+  EllipsisBlinking,
+  RollingBlocks,
+  GrowingCircles,
+  SpinningCircles,
+  SpinningSemicircle
+}

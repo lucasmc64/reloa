@@ -1,6 +1,8 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 
+import DivContainer from '../helpers/Container'
+
 const blinkKeyframes = keyframes`
   0% {
     opacity: 1;
@@ -18,13 +20,10 @@ const blinkKeyframes = keyframes`
   }
 `
 
-const DivDots = styled.div`
+const DivDots = styled(DivContainer)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 4em;
-  height: 4em;
-  padding: 0.5em;
 `
 
 const DivDot = styled.div`
@@ -46,9 +45,9 @@ const DivDot = styled.div`
   }
 `
 
-const EllipsisBlinking = () => {
+const EllipsisBlinking = ({ proportion = null }) => {
   return (
-    <DivDots>
+    <DivDots proportion={proportion}>
       <DivDot />
       <DivDot />
       <DivDot />

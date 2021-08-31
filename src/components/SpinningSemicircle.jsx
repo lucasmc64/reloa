@@ -1,6 +1,8 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 
+import DivContainer from '../helpers/Container'
+
 const spinKeyframes = keyframes`
   100% {
     transform: rotate(360deg);
@@ -21,12 +23,6 @@ const changeShapeKeyframes = keyframes`
   }
 `
 
-const DivContainer = styled.div`
-  width: 4em;
-  height: 4em;
-  padding: 0.5em;
-`
-
 const DivSemicircle = styled.div`
   width: 100%;
   height: 100%;
@@ -40,9 +36,9 @@ const DivSemicircle = styled.div`
     ${changeShapeKeyframes} 1.5s infinite linear;
 `
 
-const SpinningSemicircle = () => {
+const SpinningSemicircle = ({ proportion = null }) => {
   return (
-    <DivContainer>
+    <DivContainer proportion={proportion}>
       <DivSemicircle />
     </DivContainer>
   )

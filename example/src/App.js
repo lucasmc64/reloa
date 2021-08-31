@@ -3,21 +3,29 @@ import React from 'react'
 import {
   Overlay,
   EllipsisBlinking,
-  RollingBlocks,
   GrowingCircles,
+  RollingBlocks,
   SpinningCircles,
   SpinningSemicircle
 } from 'sweet-loading'
 
 const App = () => {
   return (
-    <Overlay>
+    <div
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: '2.5rem',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
       <EllipsisBlinking />
-      <RollingBlocks />
       <GrowingCircles />
+      <RollingBlocks />
       <SpinningCircles />
       <SpinningSemicircle />
-    </Overlay>
+    </div>
   )
 }
 

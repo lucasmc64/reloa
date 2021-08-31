@@ -1,16 +1,12 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 
+import DivContainer from '../helpers/Container'
+
 const spinKeyframes = keyframes`
   100% {
     transform: rotateZ(360deg);
   }
-`
-
-const DivCircles = styled.div`
-  width: 4em;
-  height: 4em;
-  padding: 0.5em;
 `
 
 const DivCircle = styled.div`
@@ -81,15 +77,15 @@ const DivCircle = styled.div`
   }
 `
 
-const SpinningCircles = () => {
+const SpinningCircles = ({ proportion = null }) => {
   return (
-    <DivCircles>
+    <DivContainer proportion={proportion}>
       <DivCircle />
       <DivCircle />
       <DivCircle />
       <DivCircle />
       <DivCircle />
-    </DivCircles>
+    </DivContainer>
   )
 }
 

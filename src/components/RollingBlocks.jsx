@@ -1,6 +1,8 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 
+import DivContainer from '../helpers/Container'
+
 const block1Keyframes = keyframes`
   0% {
     top: 0%;
@@ -94,21 +96,17 @@ const block3Keyframes = keyframes`
   }
 `
 
-const DivBlocks = styled.div`
+const DivBlocks = styled(DivContainer)`
   display: grid;
   grid-template: 1fr 1fr / 1fr 1fr;
-  padding: 0.5em;
-  width: max-content;
 `
 
 const DivBlock = styled.div`
   position: relative;
-  width: 1.25em;
-  height: 1.25em;
-  margin: 0.125em;
   background: transparent;
   border: 0.25em solid #d2d2d8;
   border-radius: 0.5em;
+  margin: 0.125em;
 
   &:nth-child(1) {
     grid-area: 1 / 1;
@@ -126,9 +124,9 @@ const DivBlock = styled.div`
   }
 `
 
-const RollingBlocks = () => {
+const RollingBlocks = ({ proportion = null }) => {
   return (
-    <DivBlocks>
+    <DivBlocks proportion={proportion}>
       <DivBlock />
       <DivBlock />
       <DivBlock />

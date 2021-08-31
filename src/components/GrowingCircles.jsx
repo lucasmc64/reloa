@@ -1,6 +1,8 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 
+import DivContainer from '../helpers/Container'
+
 const blinkKeyframes = keyframes`
   0% {
     transform: scale(1);
@@ -15,15 +17,12 @@ const blinkKeyframes = keyframes`
   }
 `
 
-const DivCircles = styled.div`
-  position: relative;
-  width: 4em;
-  height: 4em;
-  padding: 0.5em;
+const DivCircles = styled(DivContainer)`
+  display: grid;
 `
 
 const DivCircle = styled.div`
-  position: absolute;
+  grid-area: 1 / 1;
   width: 4em;
   height: 4em;
   border-radius: 50%;
@@ -43,9 +42,9 @@ const DivCircle = styled.div`
   }
 `
 
-const GrowingCircles = () => {
+const GrowingCircles = ({ proportion = null }) => {
   return (
-    <DivCircles>
+    <DivCircles proportion={proportion}>
       <DivCircle />
       <DivCircle />
       <DivCircle />

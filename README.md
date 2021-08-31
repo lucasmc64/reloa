@@ -16,7 +16,7 @@ yarn add reloa
 
 ```jsx
 import React from 'react'
-import { Overlay, RollingBlocks } from 'reloa'
+import { Overlay, RollingBlocks, SpinningCircles } from 'reloa'
 
 const Example1 = () => {
   return (
@@ -29,12 +29,12 @@ const Example1 = () => {
 const Example2 = () => {
   return (
     <button>
-      <RollingBlocks proportion="5px" />
+      <SpinningCircles proportion="5" />
     </button>
   )
 }
 
-export { Exemple1, Exemple2}
+export { Exemple1, Exemple2 }
 ```
 
 ## :jigsaw: Properties

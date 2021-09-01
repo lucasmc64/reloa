@@ -7,9 +7,9 @@
 ## :articulated_lorry: Install
 
 ```bash
-npm install reloa
+npm install styled-components reloa
 # or
-yarn add reloa
+yarn add styled-components reloa
 ```
 
 ## :building_construction: Usage

@@ -1,13 +1,13 @@
-import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import React from "react";
+import styled, { keyframes } from "styled-components";
 
-import DivContainer from '../helpers/Container'
+import DivContainer from "../helpers/Container";
 
 const spinKeyframes = keyframes`
   100% {
     transform: rotate(360deg);
   }
-`
+`;
 
 const changeShapeKeyframes = keyframes`
   0% {
@@ -21,7 +21,7 @@ const changeShapeKeyframes = keyframes`
   100% {
     clip-path: polygon(50% 50%, 100% 0%, 100% 0%, 100% 100%, 100% 100%);
   }
-`
+`;
 
 const DivSemicircle = styled.div`
   width: 100%;
@@ -34,14 +34,14 @@ const DivSemicircle = styled.div`
   position: relative;
   animation: ${spinKeyframes} 1.5s infinite linear,
     ${changeShapeKeyframes} 1.5s infinite linear;
-`
+`;
 
 const SpinningSemicircle = ({ baseSize = null }) => {
   return (
     <DivContainer baseSize={baseSize}>
       <DivSemicircle />
     </DivContainer>
-  )
-}
+  );
+};
 
-export default SpinningSemicircle
+export default SpinningSemicircle;

@@ -1,7 +1,7 @@
-import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import React from "react";
+import styled, { keyframes } from "styled-components";
 
-import DivContainer from '../helpers/Container'
+import DivContainer from "../helpers/Container";
 
 const block1Keyframes = keyframes`
   0% {
@@ -32,7 +32,7 @@ const block1Keyframes = keyframes`
     left: 0%;
     transform: rotateZ(720deg);
   }
-`
+`;
 
 const block2Keyframes = keyframes`
   0% {
@@ -63,7 +63,7 @@ const block2Keyframes = keyframes`
     left: 0%;
     transform: rotateZ(720deg);
   }
-`
+`;
 
 const block3Keyframes = keyframes`
   0% {
@@ -94,12 +94,12 @@ const block3Keyframes = keyframes`
     left: 0%;
     transform: rotateZ(720deg);
   }
-`
+`;
 
 const DivBlocks = styled(DivContainer)`
   display: grid;
   grid-template: 1fr 1fr / 1fr 1fr;
-`
+`;
 
 const DivBlock = styled.div`
   position: relative;
@@ -122,7 +122,7 @@ const DivBlock = styled.div`
     grid-area: 2 / 2;
     animation: ${block3Keyframes} 6s calc(6s / 4 / 3 * 2) infinite;
   }
-`
+`;
 
 const RollingBlocks = ({ baseSize = null }) => {
   return (
@@ -131,7 +131,7 @@ const RollingBlocks = ({ baseSize = null }) => {
       <DivBlock />
       <DivBlock />
     </DivBlocks>
-  )
-}
+  );
+};
 
-export default RollingBlocks
+export default RollingBlocks;

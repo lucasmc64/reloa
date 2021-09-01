@@ -7,34 +7,34 @@
 ## :articulated_lorry: Install
 
 ```bash
-npm install styled-components reloa
+npm install reloa
 # or
-yarn add styled-components reloa
+yarn add reloa
 ```
 
 ## :building_construction: Usage
 
 ```jsx
-import React from 'react'
-import { Overlay, RollingBlocks, SpinningCircles } from 'reloa'
+import React from "react";
+import { Overlay, RollingBlocks, SpinningCircles } from "reloa";
 
 const Example1 = () => {
   return (
     <Overlay>
       <RollingBlocks />
     </Overlay>
-  )
-}
+  );
+};
 
 const Example2 = () => {
   return (
     <button>
-      <SpinningCircles baseSize='5px' />
+      <SpinningCircles baseSize="5px" />
     </button>
-  )
-}
+  );
+};
 
-export { Exemple1, Exemple2 }
+export { Exemple1, Exemple2 };
 ```
 
 ## :jigsaw: Properties

@@ -1,13 +1,13 @@
-import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import React from "react";
+import styled, { keyframes } from "styled-components";
 
-import DivContainer from '../helpers/Container'
+import DivContainer from "../helpers/Container";
 
 const spinKeyframes = keyframes`
   100% {
     transform: rotateZ(360deg);
   }
-`
+`;
 
 const DivCircle = styled.div`
   position: absolute;
@@ -37,7 +37,7 @@ const DivCircle = styled.div`
   }
 
   &::before {
-    content: '';
+    content: "";
     display: block;
     border-radius: 50%;
     background: #d2d2d8;
@@ -75,7 +75,7 @@ const DivCircle = styled.div`
     opacity: 0.2;
     transform: translateY(0.2em);
   }
-`
+`;
 
 const SpinningCircles = ({ baseSize = null }) => {
   return (
@@ -86,7 +86,7 @@ const SpinningCircles = ({ baseSize = null }) => {
       <DivCircle />
       <DivCircle />
     </DivContainer>
-  )
-}
+  );
+};
 
-export default SpinningCircles
+export default SpinningCircles;

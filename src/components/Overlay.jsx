@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
 const DivOverlay = styled.div`
   position: fixed;
@@ -12,10 +12,10 @@ const DivOverlay = styled.div`
   display: grid;
   justify-content: center;
   align-items: center;
-`
+`;
 
 const Overlay = ({ isLoading, children }) => {
-  return <DivOverlay>{children}</DivOverlay>
-}
+  return <DivOverlay>{children}</DivOverlay>;
+};
 
-export default Overlay
+export default Overlay;

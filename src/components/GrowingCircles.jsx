@@ -1,7 +1,7 @@
-import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import React from "react";
+import styled, { keyframes } from "styled-components";
 
-import DivContainer from '../helpers/Container'
+import DivContainer from "../helpers/Container";
 
 const blinkKeyframes = keyframes`
   0% {
@@ -15,11 +15,11 @@ const blinkKeyframes = keyframes`
   100% {
     transform: scale(1);
   }
-`
+`;
 
 const DivCircles = styled(DivContainer)`
   display: grid;
-`
+`;
 
 const DivCircle = styled.div`
   grid-area: 1 / 1;
@@ -40,7 +40,7 @@ const DivCircle = styled.div`
   &:nth-child(3) {
     animation: ${blinkKeyframes} 2s calc(2s / 2 / 3 * 2) infinite;
   }
-`
+`;
 
 const GrowingCircles = ({ baseSize = null }) => {
   return (
@@ -49,7 +49,7 @@ const GrowingCircles = ({ baseSize = null }) => {
       <DivCircle />
       <DivCircle />
     </DivCircles>
-  )
-}
+  );
+};
 
-export default GrowingCircles
+export default GrowingCircles;

@@ -1,7 +1,7 @@
-import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import React from "react";
+import styled, { keyframes } from "styled-components";
 
-import DivContainer from '../helpers/Container'
+import DivContainer from "../helpers/Container";
 
 const blinkKeyframes = keyframes`
   0% {
@@ -18,13 +18,13 @@ const blinkKeyframes = keyframes`
     opacity: 1;
     transform: scale(1);
   }
-`
+`;
 
 const DivDots = styled(DivContainer)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`
+`;
 
 const DivDot = styled.div`
   width: 0.8em;
@@ -43,7 +43,7 @@ const DivDot = styled.div`
   &:nth-child(3) {
     animation: ${blinkKeyframes} 1s calc(1s / 4 * 2) infinite;
   }
-`
+`;
 
 const EllipsisBlinking = ({ baseSize = null }) => {
   return (
@@ -52,7 +52,7 @@ const EllipsisBlinking = ({ baseSize = null }) => {
       <DivDot />
       <DivDot />
     </DivDots>
-  )
-}
+  );
+};
 
-export default EllipsisBlinking
+export default EllipsisBlinking;

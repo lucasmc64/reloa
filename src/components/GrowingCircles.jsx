@@ -42,9 +42,9 @@ const DivCircle = styled.div`
   }
 `
 
-const GrowingCircles = ({ proportion = null }) => {
+const GrowingCircles = ({ baseSize = null }) => {
   return (
-    <DivCircles proportion={proportion}>
+    <DivCircles baseSize={baseSize}>
       <DivCircle />
       <DivCircle />
       <DivCircle />

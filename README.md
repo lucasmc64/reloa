@@ -29,7 +29,7 @@ const Example1 = () => {
 const Example2 = () => {
   return (
     <button>
-      <SpinningCircles proportion="5" />
+      <SpinningCircles baseSize='5px' />
     </button>
   )
 }
@@ -41,13 +41,13 @@ export { Exemple1, Exemple2 }
 
 The animation components can be given some properties to adjust them to your needs.
 
-### `proportion`
+### `baseSize`
 
 | Required? | Type     | Default value |
 | --------- | -------- | ------------- |
 | No        | `String` | `null`        |
 
-**Description**: 
+**Description**:
 
 The measures used to create the animations are in `em`, which means that when you change the `font-size` of some parent element, the size of the animation will change proportionally.
 

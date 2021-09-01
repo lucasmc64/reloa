@@ -77,9 +77,9 @@ const DivCircle = styled.div`
   }
 `
 
-const SpinningCircles = ({ proportion = null }) => {
+const SpinningCircles = ({ baseSize = null }) => {
   return (
-    <DivContainer proportion={proportion}>
+    <DivContainer baseSize={baseSize}>
       <DivCircle />
       <DivCircle />
       <DivCircle />

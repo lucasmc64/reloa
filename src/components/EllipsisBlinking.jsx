@@ -45,9 +45,9 @@ const DivDot = styled.div`
   }
 `
 
-const EllipsisBlinking = ({ proportion = null }) => {
+const EllipsisBlinking = ({ baseSize = null }) => {
   return (
-    <DivDots proportion={proportion}>
+    <DivDots baseSize={baseSize}>
       <DivDot />
       <DivDot />
       <DivDot />

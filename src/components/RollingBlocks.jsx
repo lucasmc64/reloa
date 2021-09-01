@@ -124,9 +124,9 @@ const DivBlock = styled.div`
   }
 `
 
-const RollingBlocks = ({ proportion = null }) => {
+const RollingBlocks = ({ baseSize = null }) => {
   return (
-    <DivBlocks proportion={proportion}>
+    <DivBlocks baseSize={baseSize}>
       <DivBlock />
       <DivBlock />
       <DivBlock />

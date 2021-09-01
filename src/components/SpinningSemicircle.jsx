@@ -36,9 +36,9 @@ const DivSemicircle = styled.div`
     ${changeShapeKeyframes} 1.5s infinite linear;
 `
 
-const SpinningSemicircle = ({ proportion = null }) => {
+const SpinningSemicircle = ({ baseSize = null }) => {
   return (
-    <DivContainer proportion={proportion}>
+    <DivContainer baseSize={baseSize}>
       <DivSemicircle />
     </DivContainer>
   )

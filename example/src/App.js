@@ -7,7 +7,7 @@ import {
   RollingBlocks,
   SpinningCircles,
   SpinningSemicircle
-} from 'sweet-loading'
+} from 'reloa'
 
 const App = () => {
   return (

@@ -1,10 +1,10 @@
 {
-  "name": "sweet-loading",
+  "name": "reloa",
   "version": "0.1.0",
   "description": "Loading animations for all tastes",
   "author": "lucasmc64",
   "license": "MIT",
-  "repository": "lucasmc64/sweet-loading",
+  "repository": "lucasmc64/reloa",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
@@ -50,7 +50,7 @@
   "files": [
     "dist"
   ],
-  "dependencies": {
+  "peerDependencies": {
     "styled-components": "^5.3.0"
   }
 }

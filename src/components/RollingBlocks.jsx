@@ -104,23 +104,23 @@ const DivBlocks = styled(DivContainer)`
 const DivBlock = styled.div`
   position: relative;
   background: transparent;
-  border: 0.25em solid #d2d2d8;
-  border-radius: 0.5em;
-  margin: 0.125em;
+  background: #d2d2d8;
+  border-radius: 25%;
+  margin: 7.5%;
 
   &:nth-child(1) {
     grid-area: 1 / 1;
-    animation: ${block1Keyframes} 6s infinite;
+    animation: ${block1Keyframes} 5s infinite;
   }
 
   &:nth-child(2) {
     grid-area: 2 / 1;
-    animation: ${block2Keyframes} 6s calc(6s / 4 / 3) infinite;
+    animation: ${block2Keyframes} 5s calc(5s / 4 / 3) infinite;
   }
 
   &:nth-child(3) {
     grid-area: 2 / 2;
-    animation: ${block3Keyframes} 6s calc(6s / 4 / 3 * 2) infinite;
+    animation: ${block3Keyframes} 5s calc(5s / 4 / 3 * 2) infinite;
   }
 `;
 

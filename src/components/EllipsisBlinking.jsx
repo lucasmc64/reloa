@@ -27,21 +27,21 @@ const DivDots = styled(DivContainer)`
 `;
 
 const DivDot = styled.div`
-  width: 0.8em;
-  height: 0.8em;
+  width: 20%;
+  height: 20%;
   border-radius: 50%;
   background: #d2d2d8;
 
   &:nth-child(1) {
-    animation: ${blinkKeyframes} 1s infinite;
+    animation: ${blinkKeyframes} 1.25s infinite;
   }
 
   &:nth-child(2) {
-    animation: ${blinkKeyframes} 1s calc(1s / 4 * 1) infinite;
+    animation: ${blinkKeyframes} 1.25s calc(1.25s / 4 * 1) infinite;
   }
 
   &:nth-child(3) {
-    animation: ${blinkKeyframes} 1s calc(1s / 4 * 2) infinite;
+    animation: ${blinkKeyframes} 1.25s calc(1.25s / 4 * 2) infinite;
   }
 `;
 

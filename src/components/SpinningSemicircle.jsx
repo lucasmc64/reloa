@@ -11,16 +11,20 @@ const spinKeyframes = keyframes`
 
 const changeShapeKeyframes = keyframes`
   0% {
-    clip-path: polygon(50% 50%, 100% 0%, 100% 0%, 100% 100%, 100% 100%);
+    clip-path: polygon(50% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%);
   }
-
-  50% {
-    clip-path: polygon(50% 50%, 0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  
+  25% {
+    clip-path: polygon(50% 50%, 100% 0%, 100% 0%, 100% 0%, 100% 100%, 100% 100%, 100% 100%);
   }
-
+  
+  75% {
+    clip-path: polygon(50% 50%, 0% 0%, 0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 100%);
+  }
+  
   100% {
-    clip-path: polygon(50% 50%, 100% 0%, 100% 0%, 100% 100%, 100% 100%);
-  }
+    clip-path: polygon(50% 50%, 0% 50%, 0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 50%);
+  } 
 `;
 
 const DivSemicircle = styled.div`
@@ -29,11 +33,14 @@ const DivSemicircle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at center, transparent 50%, #d2d2d8 50%);
   border-radius: 50%;
-  position: relative;
-  animation: ${spinKeyframes} 1.5s infinite linear,
-    ${changeShapeKeyframes} 1.5s infinite linear;
+  background: radial-gradient(
+    circle at center,
+    transparent 51%,
+    #d2d2d8 51%
+  ); // Container width = 71%
+  animation: ${changeShapeKeyframes} 1.25s infinite linear alternate,
+    ${spinKeyframes} 1.25s infinite linear;
 `;
 
 const SpinningSemicircle = ({ baseSize = null }) => {

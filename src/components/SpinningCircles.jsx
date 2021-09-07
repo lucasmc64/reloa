@@ -44,36 +44,36 @@ const DivCircle = styled.div`
   }
 
   &:nth-child(1)::before {
-    width: 0.8em;
-    height: 0.8em;
+    width: 20%;
+    height: 20%;
   }
 
   &:nth-child(2)::before {
-    width: 0.7em;
-    height: 0.7em;
+    width: 17.5%;
+    height: 17.5%;
     opacity: 0.8;
-    transform: translateY(0.05em);
+    transform: translateY(1.25%);
   }
 
   &:nth-child(3)::before {
-    width: 0.6em;
-    height: 0.6em;
+    width: 15%;
+    height: 15%;
     opacity: 0.6;
-    transform: translateY(0.1em);
+    transform: translateY(2.5%);
   }
 
   &:nth-child(4)::before {
-    width: 0.5em;
-    height: 0.5em;
+    width: 12.5%;
+    height: 12.5%;
     opacity: 0.4;
-    transform: translateY(0.15em);
+    transform: translateY(3.75%);
   }
 
   &:nth-child(5)::before {
-    width: 0.4em;
-    height: 0.4em;
+    width: 10%;
+    height: 10%;
     opacity: 0.2;
-    transform: translateY(0.2em);
+    transform: translateY(5%);
   }
 `;
 

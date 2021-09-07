@@ -23,22 +23,22 @@ const DivCircles = styled(DivContainer)`
 
 const DivCircle = styled.div`
   grid-area: 1 / 1;
-  width: 4em;
-  height: 4em;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   background: #d2d2d8;
   opacity: 0.5;
 
   &:nth-child(1) {
-    animation: ${blinkKeyframes} 2s infinite;
+    animation: ${blinkKeyframes} 2.5s infinite;
   }
 
   &:nth-child(2) {
-    animation: ${blinkKeyframes} 2s calc(2s / 2 / 3) infinite;
+    animation: ${blinkKeyframes} 2.5s calc(2.5s / 2 / 3) infinite;
   }
 
   &:nth-child(3) {
-    animation: ${blinkKeyframes} 2s calc(2s / 2 / 3 * 2) infinite;
+    animation: ${blinkKeyframes} 2.5s calc(2.5s / 2 / 3 * 2) infinite;
   }
 `;
 

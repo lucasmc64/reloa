@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 import {
   Overlay,
@@ -6,18 +6,19 @@ import {
   GrowingCircles,
   RollingBlocks,
   SpinningCircles,
-  SpinningSemicircle
-} from 'reloa'
+  SpinningSemicircle,
+} from "reloa";
 
 const App = () => {
   return (
     <div
       style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: '2.5rem',
-        alignItems: 'center',
-        justifyContent: 'center'
+        display: "flex",
+        flexWrap: "wrap",
+        gap: "2.5rem",
+        alignItems: "center",
+        justifyContent: "center",
+        margin: "auto",
       }}
     >
       <EllipsisBlinking />
@@ -26,7 +27,7 @@ const App = () => {
       <SpinningCircles />
       <SpinningSemicircle />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

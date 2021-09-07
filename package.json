@@ -15,14 +15,13 @@
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs"
   },
-  "dependencies": {
-    "styled-components": "^5.3.1"
+  "peerDependencies": {
+    "react": ">= 16.13.1",
+    "react-dom": ">= 16.13.1",
+    "styled-components": ">= 5.3.0"
   },
   "devDependencies": {
-    "microbundle-crl": "^0.13.10",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.1"
+    "microbundle-crl": "^0.13.10"
   },
   "files": [
     "dist"

@@ -1,6 +1,8 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
+import ReloaContext from "../contexts/ReloaContext";
+
 import DivContainer from "../helpers/Container";
 
 const spinKeyframes = keyframes`
@@ -77,9 +79,12 @@ const DivCircle = styled.div`
   }
 `;
 
-const SpinningCircles = ({ baseSize = null }) => {
+const SpinningCircles = ({ size: sizeProperty = null }) => {
+  const { size: sizeContext = null } =
+    React.useContext(ReloaContext) ?? {};
+
   return (
-    <DivContainer baseSize={baseSize}>
+    <DivContainer size={sizeProperty ?? sizeContext}>
       <DivCircle />
       <DivCircle />
       <DivCircle />

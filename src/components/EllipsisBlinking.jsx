@@ -1,6 +1,8 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
+import ReloaContext from "../contexts/ReloaContext";
+
 import DivContainer from "../helpers/Container";
 
 const blinkKeyframes = keyframes`
@@ -45,9 +47,12 @@ const DivDot = styled.div`
   }
 `;
 
-const EllipsisBlinking = ({ baseSize = null }) => {
+const EllipsisBlinking = ({ size: sizeProperty = null }) => {
+  const { size: sizeContext = null } =
+    React.useContext(ReloaContext) ?? {};
+
   return (
-    <DivDots baseSize={baseSize}>
+    <DivDots size={sizeProperty ?? sizeContext}>
       <DivDot />
       <DivDot />
       <DivDot />

@@ -14,7 +14,7 @@ const DivOverlay = styled.div`
   align-items: center;
 `;
 
-const Overlay = ({ isLoading, children }) => {
+const Overlay = ({ children }) => {
   return <DivOverlay>{children}</DivOverlay>;
 };
 

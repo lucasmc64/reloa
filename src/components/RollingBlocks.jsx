@@ -1,6 +1,8 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
+import ReloaContext from "../contexts/ReloaContext";
+
 import DivContainer from "../helpers/Container";
 
 const block1Keyframes = keyframes`
@@ -124,9 +126,12 @@ const DivBlock = styled.div`
   }
 `;
 
-const RollingBlocks = ({ baseSize = null }) => {
+const RollingBlocks = ({ size: sizeProperty = null }) => {
+  const { size: sizeContext = null } =
+    React.useContext(ReloaContext) ?? {};
+
   return (
-    <DivBlocks baseSize={baseSize}>
+    <DivBlocks size={sizeProperty ?? sizeContext}>
       <DivBlock />
       <DivBlock />
       <DivBlock />

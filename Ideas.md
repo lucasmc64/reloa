@@ -1,2 +1,4 @@
-- Pacman animation
-- Rainbow animation
+- Pacman
+- Rainbow
+- À lá cinema
+- Infinite

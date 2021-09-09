@@ -1,26 +1,30 @@
-# Reloa - React Loading Animations
-
-> Loading animations for all tastes!
+# Reloa
 
 [![NPM](https://img.shields.io/npm/v/reloa.svg)](https://www.npmjs.com/package/reloa) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-## Installing dependencies
+## What is Reloa?
+
+Reloa is a set of loading animations for websites using React, providing a quick and elegant solution for times when a user interaction takes a while to complete.
+
+## Usage
+
+### 1. Dealing with dependencies
+
+If you are using npm versions 3, 4, 5 or 6, you must explicitly install the dependencies below.
+
+>  If you are using any version of `npm` not listed here, it will automatically install the dependencies. You can still do this manually if you are going to use any of them in your own project.
 
 ```bash
 npm install styled-components
-# or
-yarn add styled-components
 ```
 
-## Installing reloa
+### 2. Installing reloa
 
 ```bash
 npm install reloa
-# or
-yarn add reloa
 ```
 
-## Usage example
+### Usage example
 
 A possible use of these animations is to show them according to some type of interaction with the user that can lead to some delay in getting a response, such as in a form submission.
 

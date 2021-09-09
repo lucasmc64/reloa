@@ -1,9 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-import ReloaContext from "../contexts/ReloaContext";
-
-import DivContainer from "../helpers/Container";
+import AnimationContainer from "../helpers/AnimationContainer";
 
 const spinKeyframes = keyframes`
   100% {
@@ -45,14 +43,11 @@ const DivSemicircle = styled.div`
     ${spinKeyframes} 1.25s infinite linear;
 `;
 
-const SpinningSemicircle = ({ size: sizeProperty = null }) => {
-  const { size: sizeContext = null } =
-    React.useContext(ReloaContext) ?? {};
-
+const SpinningSemicircle = () => {
   return (
-    <DivContainer size={sizeProperty ?? sizeContext}>
+    <AnimationContainer>
       <DivSemicircle />
-    </DivContainer>
+    </AnimationContainer>
   );
 };
 

@@ -1,9 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-import ReloaContext from "../contexts/ReloaContext";
-
-import DivContainer from "../helpers/Container";
+import AnimationContainer from "../helpers/AnimationContainer";
 
 const blinkKeyframes = keyframes`
   0% {
@@ -22,7 +20,7 @@ const blinkKeyframes = keyframes`
   }
 `;
 
-const DivDots = styled(DivContainer)`
+const DivDots = styled(AnimationContainer)`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,12 +45,9 @@ const DivDot = styled.div`
   }
 `;
 
-const EllipsisBlinking = ({ size: sizeProperty = null }) => {
-  const { size: sizeContext = null } =
-    React.useContext(ReloaContext) ?? {};
-
+const EllipsisBlinking = () => {
   return (
-    <DivDots size={sizeProperty ?? sizeContext}>
+    <DivDots>
       <DivDot />
       <DivDot />
       <DivDot />

@@ -1,9 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-import ReloaContext from "../contexts/ReloaContext";
-
-import DivContainer from "../helpers/Container";
+import AnimationContainer from "../helpers/AnimationContainer";
 
 const blinkKeyframes = keyframes`
   0% {
@@ -19,7 +17,7 @@ const blinkKeyframes = keyframes`
   }
 `;
 
-const DivCircles = styled(DivContainer)`
+const DivCircles = styled(AnimationContainer)`
   display: grid;
 `;
 
@@ -44,12 +42,9 @@ const DivCircle = styled.div`
   }
 `;
 
-const GrowingCircles = ({ size: sizeProperty = null }) => {
-  const { size: sizeContext = null } =
-    React.useContext(ReloaContext) ?? {};
-
+const GrowingCircles = () => {
   return (
-    <DivCircles size={sizeProperty ?? sizeContext}>
+    <DivCircles>
       <DivCircle />
       <DivCircle />
       <DivCircle />

@@ -1,9 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-import ReloaContext from "../contexts/ReloaContext";
-
-import DivContainer from "../helpers/Container";
+import AnimationContainer from "../helpers/AnimationContainer";
 
 const block1Keyframes = keyframes`
   0% {
@@ -98,7 +96,7 @@ const block3Keyframes = keyframes`
   }
 `;
 
-const DivBlocks = styled(DivContainer)`
+const DivBlocks = styled(AnimationContainer)`
   display: grid;
   grid-template: 1fr 1fr / 1fr 1fr;
 `;
@@ -126,12 +124,9 @@ const DivBlock = styled.div`
   }
 `;
 
-const RollingBlocks = ({ size: sizeProperty = null }) => {
-  const { size: sizeContext = null } =
-    React.useContext(ReloaContext) ?? {};
-
+const RollingBlocks = () => {
   return (
-    <DivBlocks size={sizeProperty ?? sizeContext}>
+    <DivBlocks>
       <DivBlock />
       <DivBlock />
       <DivBlock />

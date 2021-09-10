@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   ReloaContext,
@@ -11,9 +11,15 @@ import {
 } from "reloa";
 
 const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setInterval(() => setIsLoading((isLoading) => !isLoading), 2000);
+  }, []);
+
   return (
-    <>
-      <Overlay>
+    <React.Fragment>
+      <Overlay show={isLoading} animate="fadeInOut">
         <div
           style={{
             display: "flex",
@@ -24,7 +30,7 @@ const App = () => {
             margin: "auto",
           }}
         >
-          <ReloaContext.Provider value={{ size: "1em" }}>
+          <ReloaContext.Provider value={{ size: "4em" }}>
             <EllipsisBlinking />
             <GrowingCircles />
             <RollingBlocks />
@@ -34,8 +40,8 @@ const App = () => {
         </div>
       </Overlay>
 
-      <p>Test 1, 2, 3!</p>
-    </>
+      <p style={{ height: "200vh" }}>Test 1, 2, 3!</p>
+    </React.Fragment>
   );
 };
 

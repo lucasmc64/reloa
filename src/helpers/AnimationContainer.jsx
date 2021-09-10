@@ -5,8 +5,8 @@ import ReloaContext from "../contexts/ReloaContext";
 
 const DivContainer = styled.div`
   box-sizing: border-box;
-  width: ${(props) => props.size ?? "4em"};
-  height: ${(props) => props.size ?? "4em"};
+  width: ${(props) => props.size};
+  height: ${(props) => props.size};
 `;
 
 const AnimationContainer = ({
@@ -17,7 +17,10 @@ const AnimationContainer = ({
   const { size: sizeContext = null } = React.useContext(ReloaContext) ?? {};
 
   return (
-    <DivContainer className={className} size={sizeProperty ?? sizeContext}>
+    <DivContainer
+      className={className}
+      size={sizeProperty ?? sizeContext ?? "4em"}
+    >
       {children}
     </DivContainer>
   );

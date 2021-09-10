@@ -24,7 +24,7 @@ npm install styled-components
 npm install reloa
 ```
 
-### Usage example
+### 3. Usage example
 
 A possible use of these animations is to show them according to some type of interaction with the user that can lead to some delay in getting a response, such as in a form submission.
 

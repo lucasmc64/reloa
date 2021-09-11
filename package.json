@@ -1,7 +1,7 @@
 {
   "name": "reloa",
   "version": "0.2.1",
-  "description": "Loading animations for all tastes!",
+  "description": "Loading animations for websites built with React, a quick and elegant solution.",
   "author": "lucasmc64",
   "license": "MIT",
   "repository": "lucasmc64/reloa",

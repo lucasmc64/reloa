@@ -25,11 +25,11 @@ const CustomBody = createGlobalStyle`
 `;
 
 const Overlay = ({
-  className,
   children,
   show = true,
   animate = null,
   hideScrollBar = true,
+  ...otherProps
 }) => {
   const [isFadeInEnded, setIsFadeInEnded] = useState(
     animate !== "fadeIn" && animate !== "fadeInOut",
@@ -70,7 +70,7 @@ const Overlay = ({
       <React.Fragment>
         {hideScrollBar ? <CustomBody /> : null}
 
-        <DivOverlay className={className} show={show && isFadeInEnded}>
+        <DivOverlay show={show && isFadeInEnded} {...otherProps}>
           {children}
         </DivOverlay>
       </React.Fragment>

@@ -54,15 +54,17 @@ export { Example };
 
 ## Overlay
 
-If you need to show an animation while an entire page loads behind the scenes, the lib provides a ready-to-use overlay.
+If you need to show something while an entire page loads behind the scenes, the lib provides a ready-to-use overlay.
 
 ```jsx
-import React from "react";
+import React, { useState } from "react";
 import { Overlay, RollingBlocks } from "reloa";
 
 const Example = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  
   return (
-    <Overlay>
+    <Overlay show={isLoading}>
       <RollingBlocks />
     </Overlay>
   );
@@ -71,9 +73,59 @@ const Example = () => {
 export { Example };
 ```
 
-## Loading Animations Context
+You don't necessarily need to just put animations on the overlay, and besides, you can change some of their behavior and styling through the properties.
 
-If you need to instantiate more than one loading animation and they have custom values for certain properties (see section below), you can use the context provided by the lib to set all these properties if you like.
+### Properties
+
+> Any other property not listed below will be passed to the `<div>` element that represents the overlay. 
+>
+> This makes it possible to use properties that this element would commonly have in the React world, such as `style` and `className`, making everything more flexible and easier to adjust to your taste or needs.
+
+#### `show`
+
+| Required? | Type      | Default value |
+| --------- | --------- | ------------- |
+| Yes       | `Boolean` | `true`        |
+
+**Description**:
+
+It is expected that in the component you use the overlay on, a state will be created to control when it should appear or disappear.
+
+It is expected that in the component you use the overlay on, a state will be created to control when it should appear or disappear. Thus, passing the variable that stores this state to the overlay through this property.
+
+You can also, of course, do something like `{isLoading ? <Overlay>{/*...*/}</Overlay> : null}`, creating your own component visibility control.
+
+However, this would also give you the extra work of, if you like, creating smooth transitions when the overlay enters or leaves the scene, which can be easily configured using this property in conjunction with the one described below :).
+
+#### `animate`
+
+| Required? | Type     | Default value |
+| --------- | -------- | ------------- |
+| No        | `String` | `null`        |
+
+**Description**:
+
+Enables smooth transitions when the overlay enters and/or leaves the screen.
+
+| Possible values | What they do?                                                |
+| --------------- | ------------------------------------------------------------ |
+| `“fadeIn”`      | Applies a transition that makes it smoother when the component **comes on screen**. |
+| `“fadeOut”`     | Applies a transition that makes it smoother when the component **leaves the screen**. |
+| `“fadeInOut”`   | Applies a transition that makes it smoother when the component **enters and leaves the screen**. |
+
+#### `hideScrollBar`
+
+| Required? | Type      | Default value |
+| --------- | --------- | ------------- |
+| No        | `Boolean` | `true`        |
+
+**Description**:
+
+Through this property you can decide whether or not you want to hide the scrollbar when the overlay is active.
+
+## Animations Context
+
+If you need to instantiate more than one animation and they have custom values for certain properties (see section below), you can use the context provided by the lib to set all these properties if you like.
 
 ```jsx
 import React from "react";

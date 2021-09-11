@@ -8,5 +8,3 @@
 - Infinite
 
 ## To do
-
-- Change package description in package.json

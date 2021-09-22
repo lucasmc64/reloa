@@ -1,5 +1,7 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
+
+import ReloaContext from "../contexts/ReloaContext";
 
 import AnimationContainer from "../helpers/AnimationContainer";
 
@@ -27,26 +29,41 @@ const changeShapeKeyframes = keyframes`
   } 
 `;
 
-const DivSemicircle = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at center,
-    transparent 51%,
-    #d2d2d8 51%
-  ); // Container width = 71%
+const SvgSemicircle = styled.svg`
   animation: ${changeShapeKeyframes} 1.25s infinite linear alternate,
     ${spinKeyframes} 1.25s infinite linear;
+  ${({ colorScale }) => {
+    if (Array.isArray(colorScale) && colorScale.length) {
+      return css`
+        color: ${colorScale[0]};
+      `;
+    }
+  }};
 `;
 
-const SpinningSemicircle = () => {
+const SpinningSemicircle = ({
+  size: sizeProperty = null,
+  colorScale: colorScaleProperty = null,
+}) => {
+  const { colorScale: colorScaleContext = null } =
+    React.useContext(ReloaContext) ?? {};
+
   return (
-    <AnimationContainer>
-      <DivSemicircle />
+    <AnimationContainer size={sizeProperty} colorScale={colorScaleProperty}>
+      <SvgSemicircle
+        width="100%"
+        height="100%"
+        colorScale={colorScaleProperty ?? colorScaleContext}
+      >
+        <circle
+          cx="50%"
+          cy="50%"
+          r="45%"
+          fill="transparent"
+          stroke="currentColor"
+          strokeWidth="10%"
+        />
+      </SvgSemicircle>
     </AnimationContainer>
   );
 };

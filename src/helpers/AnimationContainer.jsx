@@ -7,19 +7,29 @@ const DivContainer = styled.div`
   box-sizing: border-box;
   width: ${(props) => props.size};
   height: ${(props) => props.size};
+  color: ${(props) => props.colorScale};
 `;
 
 const AnimationContainer = ({
   className,
   children,
   size: sizeProperty = null,
+  colorScale: colorScaleProperty = null,
 }) => {
-  const { size: sizeContext = null } = React.useContext(ReloaContext) ?? {};
+  const { size: sizeContext = null, colorScale: colorScaleContext = null } =
+    React.useContext(ReloaContext) ?? {};
 
   return (
     <DivContainer
       className={className}
       size={sizeProperty ?? sizeContext ?? "4em"}
+      colorScale={
+        colorScaleProperty && !Array.isArray(colorScaleProperty)
+          ? colorScaleProperty
+          : colorScaleContext && !Array.isArray(colorScaleContext)
+          ? colorScaleContext
+          : "#d2d2d8"
+      }
     >
       {children}
     </DivContainer>

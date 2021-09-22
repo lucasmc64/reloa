@@ -3,8 +3,8 @@ import styled, { keyframes } from "styled-components";
 
 import AnimationContainer from "../helpers/AnimationContainer";
 
-const New = () => {
+const Infinite = () => {
   return <AnimationContainer></AnimationContainer>;
 };
 
-export default New;
+export default Infinite;

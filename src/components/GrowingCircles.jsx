@@ -1,7 +1,11 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
+
+import ReloaContext from "../contexts/ReloaContext";
 
 import AnimationContainer from "../helpers/AnimationContainer";
+
+const circlesArray = Array.from(Array(3).keys());
 
 const blinkKeyframes = keyframes`
   0% {
@@ -26,28 +30,42 @@ const DivCircle = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: #d2d2d8;
+  background: currentColor;
   opacity: 0.5;
 
-  &:nth-child(1) {
-    animation: ${blinkKeyframes} 2.5s infinite;
-  }
+  ${circlesArray.map(
+    (circle, _, array) => css`
+      &:nth-child(${circle + 1}) {
+        animation: ${blinkKeyframes} 2.5s
+          calc(2.5s / 2 / ${array.length} * ${circle}) infinite;
 
-  &:nth-child(2) {
-    animation: ${blinkKeyframes} 2.5s calc(2.5s / 2 / 3) infinite;
-  }
-
-  &:nth-child(3) {
-    animation: ${blinkKeyframes} 2.5s calc(2.5s / 2 / 3 * 2) infinite;
-  }
+        ${({ colorScale }) => {
+          if (Array.isArray(colorScale) && colorScale.length) {
+            return css`
+              color: ${colorScale[circle % colorScale.length]};
+            `;
+          }
+        }}
+      }
+    `,
+  )}
 `;
 
-const GrowingCircles = () => {
+const GrowingCircles = ({
+  size: sizeProperty = null,
+  colorScale: colorScaleProperty = null,
+}) => {
+  const { colorScale: colorScaleContext = null } =
+    React.useContext(ReloaContext) ?? {};
+
   return (
-    <DivCircles>
-      <DivCircle />
-      <DivCircle />
-      <DivCircle />
+    <DivCircles size={sizeProperty} colorScale={colorScaleProperty}>
+      {circlesArray.map((circle) => (
+        <DivCircle
+          key={circle}
+          colorScale={colorScaleProperty ?? colorScaleContext}
+        />
+      ))}
     </DivCircles>
   );
 };

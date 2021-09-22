@@ -1,7 +1,11 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
+
+import ReloaContext from "../contexts/ReloaContext";
 
 import AnimationContainer from "../helpers/AnimationContainer";
+
+const circlesArray = Array.from(Array(6).keys());
 
 const spinKeyframes = keyframes`
   100% {
@@ -16,75 +20,58 @@ const DivCircle = styled.div`
   display: flex;
   justify-content: center;
 
-  &:nth-child(1) {
-    animation: ${spinKeyframes} 2.5s infinite;
-  }
+  ${circlesArray.map(
+    (circle, _, array) => css`
+      &:nth-child(${circle + 1}) {
+        animation: ${spinKeyframes} 2.5s
+          calc(2.5s / 4 / ${array.length} * ${circle}) infinite;
+        z-index: calc(10 - ${circle + 1});
 
-  &:nth-child(2) {
-    animation: ${spinKeyframes} 2.5s calc(2.5s / 20 * 1) infinite;
-  }
-
-  &:nth-child(3) {
-    animation: ${spinKeyframes} 2.5s calc(2.5s / 20 * 2) infinite;
-  }
-
-  &:nth-child(4) {
-    animation: ${spinKeyframes} 2.5s calc(2.5s / 20 * 3) infinite;
-  }
-
-  &:nth-child(5) {
-    animation: ${spinKeyframes} 2.5s calc(2.5s / 20 * 4) infinite;
-  }
+        ${({ colorScale }) => {
+          if (Array.isArray(colorScale) && colorScale.length) {
+            return css`
+              color: ${colorScale[circle % colorScale.length]};
+            `;
+          }
+        }}
+      }
+    `,
+  )}
 
   &::before {
     content: "";
     display: block;
     border-radius: 50%;
-    background: #d2d2d8;
+    background: currentColor;
   }
 
-  &:nth-child(1)::before {
-    width: 20%;
-    height: 20%;
-  }
-
-  &:nth-child(2)::before {
-    width: 17.5%;
-    height: 17.5%;
-    opacity: 0.8;
-    transform: translateY(1.25%);
-  }
-
-  &:nth-child(3)::before {
-    width: 15%;
-    height: 15%;
-    opacity: 0.6;
-    transform: translateY(2.5%);
-  }
-
-  &:nth-child(4)::before {
-    width: 12.5%;
-    height: 12.5%;
-    opacity: 0.4;
-    transform: translateY(3.75%);
-  }
-
-  &:nth-child(5)::before {
-    width: 10%;
-    height: 10%;
-    opacity: 0.2;
-    transform: translateY(5%);
-  }
+  ${circlesArray.map(
+    (circle) => css`
+      &:nth-child(${circle + 1})::before {
+        width: calc(20% - 2.5% * ${circle});
+        height: calc(20% - 2.5% * ${circle});
+        opacity: calc(1 - 0.1 * ${circle});
+        margin: calc(${circle} * 1.25%) 0;
+      }
+    `,
+  )}
 `;
 
-const SpinningCircles = () => {
+const SpinningCircles = ({
+  size: sizeProperty = null,
+  colorScale: colorScaleProperty = null,
+}) => {
+  const { colorScale: colorScaleContext = null } =
+    React.useContext(ReloaContext) ?? {};
+
   return (
-    <AnimationContainer>
-      <DivCircle />
-      <DivCircle />
-      <DivCircle />
-      <DivCircle />
-      <DivCircle />
+    <AnimationContainer size={sizeProperty} colorScale={colorScaleProperty}>
+      {circlesArray.map((circle) => (
+        <DivCircle
+          key={circle}
+          colorScale={colorScaleProperty ?? colorScaleContext}
+        />
+      ))}
     </AnimationContainer>
   );
 };

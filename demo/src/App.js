@@ -14,7 +14,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setInterval(() => setIsLoading((isLoading) => !isLoading), 2000);
+    //setInterval(() => setIsLoading((isLoading) => !isLoading), 2000);
   }, []);
 
   return (
@@ -30,12 +30,18 @@ const App = () => {
             margin: "auto",
           }}
         >
-          <ReloaContext.Provider value={{ size: "4em" }}>
+          <ReloaContext.Provider
+            value={{
+              size: "4em",
+              //colorScale: "blue",
+              colorScale: ["#7159c1", "tomato", "green", "pink"],
+            }}
+          >
             <EllipsisBlinking />
-            <GrowingCircles />
-            <RollingBlocks />
-            <SpinningCircles />
-            <SpinningSemicircle />
+            <GrowingCircles colorScale={["black", "pink"]} />
+            <RollingBlocks colorScale="pink" />
+            <SpinningCircles colorScale={"pink"} />
+            <SpinningSemicircle colorScale={["pink"]} />
           </ReloaContext.Provider>
         </div>
       </Overlay>

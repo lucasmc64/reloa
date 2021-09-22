@@ -17,3 +17,14 @@ export {
   SpinningCircles,
   SpinningSemicircle,
 };
+
+/* DEV */
+/*
+import Ellipsis2 from "./dev-components/Ellipsis2";
+import Ellipsis3 from "./dev-components/Ellipsis3";
+import Ellipsis4 from "./dev-components/Ellipsis4";
+import Ellipsis5 from "./dev-components/Ellipsis5";
+import Cinema from "./dev-components/Cinema";
+
+export { Ellipsis2, Ellipsis3, Ellipsis4, Ellipsis5, Cinema };
+*/

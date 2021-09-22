@@ -127,6 +127,8 @@ Through this property you can decide whether or not you want to hide the scrollb
 
 If you need to instantiate more than one animation and they have custom values for certain properties (see section below), you can use the context provided by the lib to set all these properties if you like.
 
+> **Attention**: The properties passed directly to the animations will have priority over the ones defined in the context.
+
 ```jsx
 import React from "react";
 import { ReloaContext, RollingBlocks, SpinningCircles } from "reloa";
@@ -135,8 +137,8 @@ import { ReloaContext, RollingBlocks, SpinningCircles } from "reloa";
 const Example1 = () => {
   return (
     <div>
-      <RollingBlocks size="1em" />
-      <SpinningCircles size="1em" />
+      <RollingBlocks size="1em" colorScale="rgba(255, 120, 200, 0.8)" />
+      <SpinningCircles size="1em" colorScale="rgba(255, 120, 200, 0.8)" />
     </div>
   );
 };
@@ -145,7 +147,7 @@ const Example1 = () => {
 const Example2 = () => {
   return (
     <div>
-      <ReloaContext.Provider value={{ size: "1em" }}>
+      <ReloaContext.Provider value={{ size: "1em", colorScale="rgba(255, 120, 200, 0.8)" }}>
         <RollingBlocks />
         <SpinningCircles />
       </ReloaContext.Provider>
@@ -172,7 +174,19 @@ This property simply changes the `width` and `height` of the animation container
 
 The measurements used to create the animations are in `%`, which means that when you change the `width` and `height` of the animation container, the size of the animation changes proportionally.
 
-> Attention: You must pass the unit of measure along with the value, as in a normal font size setting.
+> Attention: You must pass the unit of measure along with the value, as in a normal height and width setting.
+
+### `colorScale`
+
+| Required? | Type                        | Default value |
+| --------- | --------------------------- | ------------- |
+| No        | `String` or `Array[String]` | `null`        |
+
+**Description**:
+
+Through this property it is possible to change the colors of the elements present in the animations. If this is not set, the default base color for animations will be **`#d2d2d8`**.
+
+If you intend to make things even more festive and/or colorful, instead of passing a single color, you can still pass an array of colors.
 
 ## How does it work?
 

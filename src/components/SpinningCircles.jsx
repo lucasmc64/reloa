@@ -5,6 +5,8 @@ import ReloaContext from "../contexts/ReloaContext";
 
 import AnimationContainer from "../helpers/AnimationContainer";
 
+import { SPEED } from "../utils/helpers";
+
 const circlesArray = Array.from(Array(6).keys());
 
 const spinKeyframes = keyframes`
@@ -60,8 +62,9 @@ const DivCircle = styled.div`
 const SpinningCircles = ({
   size: sizeProperty = null,
   colorScale: colorScaleProperty = null,
+  speed: speedProperty = null,
 }) => {
-  const { colorScale: colorScaleContext = null } =
+  const { colorScale: colorScaleContext = null, speed: speedContext = null } =
     React.useContext(ReloaContext) ?? {};
 
   return (

@@ -5,6 +5,8 @@ import ReloaContext from "../contexts/ReloaContext";
 
 import AnimationContainer from "../helpers/AnimationContainer";
 
+import { SPEED } from "../utils/helpers";
+
 const blocksArray = Array.from(Array(3).keys());
 
 const blocksKeyframes = {
@@ -144,8 +146,9 @@ const DivBlock = styled.div`
 const RollingBlocks = ({
   size: sizeProperty = null,
   colorScale: colorScaleProperty = null,
+  speed: speedProperty = null,
 }) => {
-  const { colorScale: colorScaleContext = null } =
+  const { colorScale: colorScaleContext = null, speed: speedContext = null } =
     React.useContext(ReloaContext) ?? {};
 
   return (

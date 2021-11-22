@@ -5,6 +5,8 @@ import ReloaContext from "../contexts/ReloaContext";
 
 import AnimationContainer from "../helpers/AnimationContainer";
 
+import { SPEED } from "../utils/helpers";
+
 const spinKeyframes = keyframes`
   100% {
     transform: rotate(360deg);
@@ -44,8 +46,9 @@ const SvgSemicircle = styled.svg`
 const SpinningSemicircle = ({
   size: sizeProperty = null,
   colorScale: colorScaleProperty = null,
+  speed: speedProperty = null,
 }) => {
-  const { colorScale: colorScaleContext = null } =
+  const { colorScale: colorScaleContext = null, speed: speedContext = null } =
     React.useContext(ReloaContext) ?? {};
 
   return (

@@ -5,6 +5,8 @@ import ReloaContext from "../contexts/ReloaContext";
 
 import AnimationContainer from "../helpers/AnimationContainer";
 
+import { SPEED } from "../utils/helpers";
+
 const circlesArray = Array.from(Array(3).keys());
 
 const blinkKeyframes = keyframes`
@@ -36,6 +38,7 @@ const DivCircle = styled.div`
   ${circlesArray.map(
     (circle, _, array) => css`
       &:nth-child(${circle + 1}) {
+        // 3 * 2.5 + 2.5 / 2 / 3
         animation: ${blinkKeyframes} 2.5s
           calc(2.5s / 2 / ${array.length} * ${circle}) infinite;
 
@@ -54,8 +57,9 @@ const DivCircle = styled.div`
 const GrowingCircles = ({
   size: sizeProperty = null,
   colorScale: colorScaleProperty = null,
+  speed: speedProperty = null,
 }) => {
-  const { colorScale: colorScaleContext = null } =
+  const { colorScale: colorScaleContext = null, speed: speedContext = null } =
     React.useContext(ReloaContext) ?? {};
 
   return (

@@ -5,7 +5,11 @@ import ReloaContext from "../contexts/ReloaContext";
 
 import AnimationContainer from "../helpers/AnimationContainer";
 
+import { SPEED } from "../utils/helpers";
+
 const dotsArray = Array.from(Array(3).keys());
+
+const defaultElementSpeed = SPEED / (3 + 3 / 4);
 
 const blinkKeyframes = keyframes`
   0%, 100% {
@@ -26,17 +30,21 @@ const DivDots = styled(AnimationContainer)`
 `;
 
 const DivDot = styled.div`
-  width: 20%;
-  height: 20%;
+  width: 22.5%;
+  height: 22.5%;
   border-radius: 50%;
   background: currentColor;
 
-  ${dotsArray.map(
-    (dot, _, array) => css`
+  ${dotsArray.map((dot, _, array) => {
+    return css`
       &:nth-child(${dot + 1}) {
-        animation: ${blinkKeyframes} 1.25s
-          calc(1.25s / ${array.length + 1} * ${dot}) infinite;
-
+        ${({ speed }) => {
+          return css`
+            // Total animation time: 3x + Somatório x/(${array.length} + 1) * n (n vai de 0 a ${array.length})
+            animation: ${blinkKeyframes} ${speed}s
+              calc(${speed}s / ${array.length + 1} * ${dot}) infinite;
+          `;
+        }}
         ${({ colorScale }) => {
           if (Array.isArray(colorScale) && colorScale.length) {
             return css`
@@ -45,15 +53,16 @@ const DivDot = styled.div`
           }
         }}
       }
-    `,
-  )}
+    `;
+  })}
 `;
 
 const EllipsisBlinking = ({
   size: sizeProperty = null,
   colorScale: colorScaleProperty = null,
+  speed: speedProperty = null,
 }) => {
-  const { colorScale: colorScaleContext = null } =
+  const { colorScale: colorScaleContext = null, speed: speedContext = null } =
     React.useContext(ReloaContext) ?? {};
 
   return (
@@ -62,6 +71,7 @@ const EllipsisBlinking = ({
         <DivDot
           key={dot}
           colorScale={colorScaleProperty ?? colorScaleContext}
+          speed={speedProperty ?? speedContext ?? defaultElementSpeed}
         />
       ))}
     </DivDots>

@@ -12,8 +12,8 @@ export {
   ReloaContext,
   Overlay,
   EllipsisBlinking,
-  RollingBlocks,
   GrowingCircles,
+  RollingBlocks,
   SpinningCircles,
   SpinningSemicircle,
 };

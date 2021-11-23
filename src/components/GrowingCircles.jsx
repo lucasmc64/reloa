@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled, { css, keyframes } from "styled-components";
 
 import ReloaContext from "../contexts/ReloaContext";
@@ -38,10 +38,12 @@ const DivCircle = styled.div`
   ${circlesArray.map(
     (circle, _, array) => css`
       &:nth-child(${circle + 1}) {
-        // 3 * 2.5 + 2.5 / 2 / 3
-        animation: ${blinkKeyframes} 2.5s
-          calc(2.5s / 2 / ${array.length} * ${circle}) infinite;
-
+        ${({ speed }) => {
+          return css`
+            animation: ${blinkKeyframes} ${speed}s
+              calc(${speed}s / 2 / ${array.length} * ${circle});
+          `;
+        }}
         ${({ colorScale }) => {
           if (Array.isArray(colorScale) && colorScale.length) {
             return css`
@@ -62,12 +64,29 @@ const GrowingCircles = ({
   const { colorScale: colorScaleContext = null, speed: speedContext = null } =
     React.useContext(ReloaContext) ?? {};
 
+  const calcElementSpeed = useCallback((speed = SPEED) => {
+    return (
+      speed /
+      (circlesArray.length +
+        circlesArray.reduce((accumulator, currentValue, _, array) => {
+          return accumulator + currentValue / (2 * array.length);
+        }))
+    );
+  }, []);
+
   return (
     <DivCircles size={sizeProperty} colorScale={colorScaleProperty}>
       {circlesArray.map((circle) => (
         <DivCircle
           key={circle}
           colorScale={colorScaleProperty ?? colorScaleContext}
+          speed={
+            speedProperty
+              ? calcElementSpeed(speedProperty)
+              : speedContext
+              ? calcElementSpeed(speedContext)
+              : calcElementSpeed()
+          }
         />
       ))}
     </DivCircles>

@@ -38,9 +38,8 @@ const DivDot = styled.div`
       &:nth-child(${dot + 1}) {
         ${({ speed }) => {
           return css`
-            // Total animation time: 3x + Somatório x/(${array.length} + 1) * n (n vai de 0 a ${array.length})
             animation: ${blinkKeyframes} ${speed}s
-              calc(${speed}s / ${array.length + 1} * ${dot}) infinite;
+              calc(${speed}s / ${array.length + 1} * ${dot});
           `;
         }}
         ${({ colorScale }) => {
@@ -64,7 +63,6 @@ const EllipsisBlinking = ({
     React.useContext(ReloaContext) ?? {};
 
   const calcElementSpeed = useCallback((speed = SPEED) => {
-    /*
     return (
       speed /
       (dotsArray.length +
@@ -72,8 +70,6 @@ const EllipsisBlinking = ({
           return accumulator + currentValue / (array.length + 1);
         }))
     );
-     */
-    return speed / (3 + 3 / 4);
   }, []);
 
   return (

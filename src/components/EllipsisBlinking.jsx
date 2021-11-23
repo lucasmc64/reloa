@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled, { css, keyframes } from "styled-components";
 
 import ReloaContext from "../contexts/ReloaContext";
@@ -8,8 +8,6 @@ import AnimationContainer from "../helpers/AnimationContainer";
 import { SPEED } from "../utils/helpers";
 
 const dotsArray = Array.from(Array(3).keys());
-
-const defaultElementSpeed = SPEED / (3 + 3 / 4);
 
 const blinkKeyframes = keyframes`
   0%, 100% {
@@ -30,8 +28,8 @@ const DivDots = styled(AnimationContainer)`
 `;
 
 const DivDot = styled.div`
-  width: 22.5%;
-  height: 22.5%;
+  width: 20%;
+  height: 20%;
   border-radius: 50%;
   background: currentColor;
 
@@ -65,13 +63,32 @@ const EllipsisBlinking = ({
   const { colorScale: colorScaleContext = null, speed: speedContext = null } =
     React.useContext(ReloaContext) ?? {};
 
+  const calcElementSpeed = useCallback((speed = SPEED) => {
+    /*
+    return (
+      speed /
+      (dotsArray.length +
+        dotsArray.reduce((accumulator, currentValue, _, array) => {
+          return accumulator + currentValue / (array.length + 1);
+        }))
+    );
+     */
+    return speed / (3 + 3 / 4);
+  }, []);
+
   return (
     <DivDots size={sizeProperty} colorScale={colorScaleProperty}>
       {dotsArray.map((dot) => (
         <DivDot
           key={dot}
           colorScale={colorScaleProperty ?? colorScaleContext}
-          speed={speedProperty ?? speedContext ?? defaultElementSpeed}
+          speed={
+            speedProperty
+              ? calcElementSpeed(speedProperty)
+              : speedContext
+              ? calcElementSpeed(speedContext)
+              : calcElementSpeed()
+          }
         />
       ))}
     </DivDots>

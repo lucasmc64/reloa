@@ -37,7 +37,7 @@ const App = () => {
               colorScale: ["#7159c1", "tomato", "green", "pink"],
             }}
           >
-            <EllipsisBlinking speed="10" />
+            <EllipsisBlinking speed={5} />
             <GrowingCircles colorScale={["black", "pink"]} />
             <RollingBlocks colorScale="pink" />
             <SpinningCircles colorScale={"pink"} />

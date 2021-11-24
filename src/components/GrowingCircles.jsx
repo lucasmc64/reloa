@@ -5,7 +5,7 @@ import ReloaContext from "../contexts/ReloaContext";
 
 import AnimationContainer from "../helpers/AnimationContainer";
 
-import { SPEED } from "../utils/helpers";
+import { SPEED } from "../utils/consts";
 
 const circlesArray = Array.from(Array(3).keys());
 
@@ -67,10 +67,7 @@ const GrowingCircles = ({
   const calcElementSpeed = useCallback((speed = SPEED) => {
     return (
       speed /
-      (circlesArray.length +
-        circlesArray.reduce((accumulator, currentValue, _, array) => {
-          return accumulator + currentValue / (2 * array.length);
-        }))
+      (1 + circlesArray[circlesArray.length - 1] / (circlesArray.length * 2))
     );
   }, []);
 

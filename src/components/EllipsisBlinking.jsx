@@ -5,7 +5,7 @@ import ReloaContext from "../contexts/ReloaContext";
 
 import AnimationContainer from "../helpers/AnimationContainer";
 
-import { SPEED } from "../utils/helpers";
+import { SPEED } from "../utils/consts";
 
 const dotsArray = Array.from(Array(3).keys());
 
@@ -64,11 +64,7 @@ const EllipsisBlinking = ({
 
   const calcElementSpeed = useCallback((speed = SPEED) => {
     return (
-      speed /
-      (dotsArray.length +
-        dotsArray.reduce((accumulator, currentValue, _, array) => {
-          return accumulator + currentValue / (array.length + 1);
-        }))
+      speed / (1 + dotsArray[dotsArray.length - 1] / (dotsArray.length + 1))
     );
   }, []);
 

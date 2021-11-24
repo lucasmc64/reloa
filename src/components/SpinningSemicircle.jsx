@@ -5,7 +5,7 @@ import ReloaContext from "../contexts/ReloaContext";
 
 import AnimationContainer from "../helpers/AnimationContainer";
 
-import { SPEED } from "../utils/helpers";
+import { SPEED } from "../utils/consts";
 
 const spinKeyframes = keyframes`
   100% {

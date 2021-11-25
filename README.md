@@ -197,6 +197,7 @@ The measurements used to create the animations are in `%`, which means that when
 **Description**:
 
 This property allows you to change the animation speed completely, receiving as value the number of **seconds** of its duration.
+
 If no value is passed, calculations will be done so that the animation lasts 5 seconds.
 
 ## How does it work?

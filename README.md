@@ -12,7 +12,7 @@ Reloa is a set of loading animations for websites using React, providing a quick
 
 If you are using npm versions 3, 4, 5 or 6, you must explicitly install the dependencies below.
 
->  If you are using any version of `npm` not listed here, it will automatically install the dependencies. You can still do this manually if you are going to use any of them in your own project.
+> If you are using any version of `npm` not listed here, it will automatically install the dependencies. You can still do this manually if you are going to use any of them in your own project.
 
 ```bash
 npm install styled-components
@@ -62,7 +62,7 @@ import { Overlay, RollingBlocks } from "reloa";
 
 const Example = () => {
   const [isLoading, setIsLoading] = useState(true);
-  
+
   return (
     <Overlay show={isLoading}>
       <RollingBlocks />
@@ -77,7 +77,7 @@ You don't necessarily need to just put animations on the overlay, and besides, y
 
 ### Properties
 
-> Any other property not listed below will be passed to the `<div>` element that represents the overlay. 
+> Any other property not listed below will be passed to the `<div>` element that represents the overlay.
 >
 > This makes it possible to use properties that this element would commonly have in the React world, such as `style` and `className`, making everything more flexible and easier to adjust to your taste or needs.
 
@@ -107,10 +107,10 @@ However, this would also give you the extra work of, if you like, creating smoot
 
 Enables smooth transitions when the overlay enters and/or leaves the screen.
 
-| Possible values | What they do?                                                |
-| --------------- | ------------------------------------------------------------ |
-| `“fadeIn”`      | Applies a transition that makes it smoother when the component **comes on screen**. |
-| `“fadeOut”`     | Applies a transition that makes it smoother when the component **leaves the screen**. |
+| Possible values | What they do?                                                                                    |
+| --------------- | ------------------------------------------------------------------------------------------------ |
+| `“fadeIn”`      | Applies a transition that makes it smoother when the component **comes on screen**.              |
+| `“fadeOut”`     | Applies a transition that makes it smoother when the component **leaves the screen**.            |
 | `“fadeInOut”`   | Applies a transition that makes it smoother when the component **enters and leaves the screen**. |
 
 #### `hideScrollBar`
@@ -162,6 +162,18 @@ export { Example1, Example2 };
 
 The animation components can be given some properties to adjust them to your needs.
 
+### `colorScale`
+
+| Required? | Type                   | Default value |
+| --------- | ---------------------- | ------------- |
+| No        | `String` or `String[]` | `null`        |
+
+**Description**:
+
+Through this property it is possible to change the colors of the elements present in the animations. If this is not set, the default base color for animations will be **`"#d2d2d8"`**.
+
+If you intend to make things even more festive and/or colorful, instead of passing a single color, you can still pass an array of colors.
+
 ### `size`
 
 | Required? | Type     | Default value |
@@ -170,23 +182,22 @@ The animation components can be given some properties to adjust them to your nee
 
 **Description**:
 
-This property simply changes the `width` and `height` of the animation container to the value passed to it. The default value for these properties is **`4em`**.
+This property simply changes the `width` and `height` of the animation container to the value passed to it. The default value for these properties is **`"4em"`**.
 
 The measurements used to create the animations are in `%`, which means that when you change the `width` and `height` of the animation container, the size of the animation changes proportionally.
 
 > Attention: You must pass the unit of measure along with the value, as in a normal height and width setting.
 
-### `colorScale`
+### `speed`
 
-| Required? | Type                        | Default value |
-| --------- | --------------------------- | ------------- |
-| No        | `String` or `Array[String]` | `null`        |
+| Required? | Type     | Default value |
+| --------- | -------- | ------------- |
+| No        | `Number` | `5`           |
 
 **Description**:
 
-Through this property it is possible to change the colors of the elements present in the animations. If this is not set, the default base color for animations will be **`#d2d2d8`**.
-
-If you intend to make things even more festive and/or colorful, instead of passing a single color, you can still pass an array of colors.
+This property allows you to change the animation speed completely, receiving as value the number of **seconds** of its duration.
+If no value is passed, calculations will be done so that the animation lasts 5 seconds.
 
 ## How does it work?
 

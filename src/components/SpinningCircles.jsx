@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled, { css, keyframes } from "styled-components";
 
 import ReloaContext from "../contexts/ReloaContext";
@@ -25,9 +25,14 @@ const DivCircle = styled.div`
   ${circlesArray.map(
     (circle, _, array) => css`
       &:nth-child(${circle + 1}) {
-        animation: ${spinKeyframes} 2.5s
-          calc(2.5s / 4 / ${array.length} * ${circle}) infinite;
         z-index: calc(10 - ${circle + 1});
+
+        ${({ speed }) => {
+          return css`
+            animation: ${spinKeyframes} ${speed}s
+              calc(${speed}s / 4 / ${array.length} * ${circle}) infinite;
+          `;
+        }}
 
         ${({ colorScale }) => {
           if (Array.isArray(colorScale) && colorScale.length) {
@@ -67,12 +72,26 @@ const SpinningCircles = ({
   const { colorScale: colorScaleContext = null, speed: speedContext = null } =
     React.useContext(ReloaContext) ?? {};
 
+  const calcElementSpeed = useCallback((speed = SPEED) => {
+    return (
+      speed /
+      (1 + circlesArray[circlesArray.length - 1] / (4 * circlesArray.length))
+    );
+  }, []);
+
   return (
     <AnimationContainer size={sizeProperty} colorScale={colorScaleProperty}>
       {circlesArray.map((circle) => (
         <DivCircle
           key={circle}
           colorScale={colorScaleProperty ?? colorScaleContext}
+          speed={
+            speedProperty
+              ? calcElementSpeed(speedProperty)
+              : speedContext
+              ? calcElementSpeed(speedContext)
+              : calcElementSpeed()
+          }
         />
       ))}
     </AnimationContainer>

@@ -32,16 +32,14 @@ const App = () => {
         >
           <ReloaContext.Provider
             value={{
-              size: "4em",
-              //colorScale: "blue",
               colorScale: ["#7159c1", "tomato", "green", "pink"],
             }}
           >
-            <EllipsisBlinking speed={5} />
-            <GrowingCircles speed={5} colorScale={["black", "pink"]} />
-            <RollingBlocks colorScale="pink" />
-            <SpinningCircles colorScale={"pink"} />
-            <SpinningSemicircle colorScale={["pink"]} />
+            <EllipsisBlinking speed={1} />
+            <GrowingCircles speed={2} colorScale={["black", "pink"]} />
+            <RollingBlocks speed={3} colorScale="pink" />
+            <SpinningCircles speed={4} />
+            <SpinningSemicircle speed={5} colorScale={["pink"]} />
           </ReloaContext.Provider>
         </div>
       </Overlay>

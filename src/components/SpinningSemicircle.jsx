@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled, { css, keyframes } from "styled-components";
 
 import ReloaContext from "../contexts/ReloaContext";
@@ -32,8 +32,13 @@ const changeShapeKeyframes = keyframes`
 `;
 
 const SvgSemicircle = styled.svg`
-  animation: ${changeShapeKeyframes} 1.25s infinite linear alternate,
-    ${spinKeyframes} 1.25s infinite linear;
+  ${({ speed }) => {
+    return css`
+      animation: ${changeShapeKeyframes} ${speed}s infinite linear alternate,
+        ${spinKeyframes} ${speed}s infinite linear;
+    `;
+  }}
+
   ${({ colorScale }) => {
     if (Array.isArray(colorScale) && colorScale.length) {
       return css`
@@ -51,12 +56,23 @@ const SpinningSemicircle = ({
   const { colorScale: colorScaleContext = null, speed: speedContext = null } =
     React.useContext(ReloaContext) ?? {};
 
+  const calcElementSpeed = useCallback((speed = SPEED) => {
+    return speed / 2;
+  }, []);
+
   return (
     <AnimationContainer size={sizeProperty} colorScale={colorScaleProperty}>
       <SvgSemicircle
         width="100%"
         height="100%"
         colorScale={colorScaleProperty ?? colorScaleContext}
+        speed={
+          speedProperty
+            ? calcElementSpeed(speedProperty)
+            : speedContext
+            ? calcElementSpeed(speedContext)
+            : calcElementSpeed()
+        }
       >
         <circle
           cx="50%"

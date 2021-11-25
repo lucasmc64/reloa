@@ -39,9 +39,10 @@ const DivDot = styled.div`
         ${({ speed }) => {
           return css`
             animation: ${blinkKeyframes} ${speed}s
-              calc(${speed}s / ${array.length + 1} * ${dot});
+              calc(${speed}s / ${array.length + 1} * ${dot}) infinite;
           `;
         }}
+
         ${({ colorScale }) => {
           if (Array.isArray(colorScale) && colorScale.length) {
             return css`

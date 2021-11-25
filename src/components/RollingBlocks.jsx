@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled, { css, keyframes } from "styled-components";
 
 import ReloaContext from "../contexts/ReloaContext";
@@ -128,8 +128,13 @@ const DivBlock = styled.div`
   ${blocksArray.map(
     (block) => css`
       &:nth-child(${block + 1}) {
-        animation: ${blocksKeyframes[`block${block + 1}Keyframes`]} 5s
-          calc(5s / 4 / 3 * ${block}) infinite;
+        ${({ speed }) => {
+          return css`
+            animation: ${blocksKeyframes[`block${block + 1}Keyframes`]}
+              ${speed}s calc(${speed}s / 4 / ${blocksArray.length} * ${block})
+              infinite;
+          `;
+        }}
 
         ${({ colorScale }) => {
           if (Array.isArray(colorScale) && colorScale.length) {
@@ -151,12 +156,26 @@ const RollingBlocks = ({
   const { colorScale: colorScaleContext = null, speed: speedContext = null } =
     React.useContext(ReloaContext) ?? {};
 
+  const calcElementSpeed = useCallback((speed = SPEED) => {
+    return (
+      speed /
+      (1 + blocksArray[blocksArray.length - 1] / (4 * blocksArray.length))
+    );
+  }, []);
+
   return (
     <DivBlocks size={sizeProperty} colorScale={colorScaleProperty}>
       {blocksArray.map((block) => (
         <DivBlock
           key={block}
           colorScale={colorScaleProperty ?? colorScaleContext}
+          speed={
+            speedProperty
+              ? calcElementSpeed(speedProperty)
+              : speedContext
+              ? calcElementSpeed(speedContext)
+              : calcElementSpeed()
+          }
         />
       ))}
     </DivBlocks>

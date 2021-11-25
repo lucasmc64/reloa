@@ -41,9 +41,10 @@ const DivCircle = styled.div`
         ${({ speed }) => {
           return css`
             animation: ${blinkKeyframes} ${speed}s
-              calc(${speed}s / 2 / ${array.length} * ${circle});
+              calc(${speed}s / 2 / ${array.length} * ${circle}) infinite;
           `;
         }}
+
         ${({ colorScale }) => {
           if (Array.isArray(colorScale) && colorScale.length) {
             return css`

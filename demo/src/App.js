@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import {
   ReloaContext,
   Overlay,
-  EllipsisBlinking,
-  GrowingCircles,
-  RollingBlocks,
-  SpinningCircles,
-  SpinningSemicircle,
+  Thinking1,
+  Thinking2,
+  Thinking3,
+  Thinking4,
+  Thinking5,
 } from "reloa";
 
 const App = () => {
@@ -33,13 +33,14 @@ const App = () => {
           <ReloaContext.Provider
             value={{
               colorScale: ["#7159c1", "tomato", "green", "pink"],
+              speed: 1,
             }}
           >
-            <EllipsisBlinking speed={1} />
-            <GrowingCircles speed={2} colorScale={["black", "pink"]} />
-            <RollingBlocks speed={3} colorScale="pink" />
-            <SpinningCircles speed={4} />
-            <SpinningSemicircle speed={5} colorScale={["pink"]} />
+            <Thinking1 />
+            <Thinking2 />
+            <Thinking3 />
+            <Thinking4 />
+            <Thinking5 />
           </ReloaContext.Provider>
         </div>
       </Overlay>

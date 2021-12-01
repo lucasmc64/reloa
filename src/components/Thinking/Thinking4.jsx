@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css, keyframes } from "styled-components";
 
-import AnimationContainer from "../helpers/AnimationContainer";
+import { GenericDivDot, Thinking } from "./Thinking";
 
 const dotsArray = Array.from(Array(4).keys());
 
@@ -52,19 +52,7 @@ const moveDotsKeyframes = {
   `,
 };
 
-const DivDots = styled(AnimationContainer)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-`;
-
-const DivDot = styled.div`
-  width: 20%;
-  height: 20%;
-  border-radius: 50%;
-  background: currentColor;
+const DivDot = styled(GenericDivDot)`
   position: absolute;
 
   ${dotsArray.map(
@@ -73,26 +61,20 @@ const DivDot = styled.div`
         animation: ${moveDotsKeyframes[`moveDot${dot + 1}Keyframes`]} 1.25s
           infinite ease-in-out;
 
-        ${(props) => {
-          if (Array.isArray(props.colorScale)) {
-            return css`
-              color: ${props.colorScale[dot % props.colorScale.length]};
-            `;
-          }
+        ${({ colorScale, speed: animationSpeed }) => {
+          return css`
+            ${Array.isArray(colorScale) && colorScale.length
+              ? `color: ${colorScale[dot % colorScale.length]};`
+              : ""}
+          `;
         }}
       }
     `,
   )}
 `;
 
-const Ellipsis4 = (props) => {
-  return (
-    <DivDots {...props}>
-      {dotsArray.map((dot) => (
-        <DivDot key={dot} {...props} />
-      ))}
-    </DivDots>
-  );
-};
+const Thinking4 = (props) => (
+  <Thinking divDot={DivDot} dotsArray={dotsArray} {...props} />
+);
 
-export default Ellipsis4;
+export default Thinking4;

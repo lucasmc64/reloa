@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css, keyframes } from "styled-components";
 
-import AnimationContainer from "../helpers/AnimationContainer";
+import { Thinking } from "./Thinking";
 
 const dotsArray = Array.from(Array(3).keys());
 
@@ -9,12 +9,6 @@ const flattenDotKeyframes = keyframes`
   50% {
     height: 50%;
   }
-`;
-
-const DivDots = styled(AnimationContainer)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 `;
 
 const DivDot = styled.div`
@@ -37,26 +31,20 @@ const DivDot = styled.div`
         animation: ${flattenDotKeyframes} 1.25s
           calc(1.25s / ${array.length + 1} * ${dot}) infinite ease-in-out;
 
-        ${(props) => {
-          if (Array.isArray(props.colorScale)) {
-            return css`
-              color: ${props.colorScale[dot % props.colorScale.length]};
-            `;
-          }
+        ${({ colorScale, speed: animationSpeed }) => {
+          return css`
+            ${Array.isArray(colorScale) && colorScale.length
+              ? `color: ${colorScale[dot % colorScale.length]};`
+              : ""}
+          `;
         }}
       }
     `,
   )}
 `;
 
-const Ellipsis5 = (props) => {
-  return (
-    <DivDots {...props}>
-      {dotsArray.map((dot) => (
-        <DivDot key={dot} {...props} />
-      ))}
-    </DivDots>
-  );
-};
+const Thinking5 = (props) => (
+  <Thinking divDot={DivDot} dotsArray={dotsArray} {...props} />
+);
 
-export default Ellipsis5;
+export default Thinking5;

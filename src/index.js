@@ -2,29 +2,24 @@ import ReloaContext from "./contexts/ReloaContext";
 
 import Overlay from "./components/Overlay";
 
-import EllipsisBlinking from "./components/EllipsisBlinking";
+export { ReloaContext, Overlay };
+
+import Thinking1 from "./components/Thinking/Thinking1";
+import Thinking2 from "./components/Thinking/Thinking2";
+import Thinking3 from "./components/Thinking/Thinking3";
+import Thinking4 from "./components/Thinking/Thinking4";
+import Thinking5 from "./components/Thinking/Thinking5";
+
+export { Thinking1, Thinking2, Thinking3, Thinking4, Thinking5 };
+
 import GrowingCircles from "./components/GrowingCircles";
 import RollingBlocks from "./components/RollingBlocks";
 import SpinningCircles from "./components/SpinningCircles";
 import SpinningSemicircle from "./components/SpinningSemicircle";
 
-export {
-  ReloaContext,
-  Overlay,
-  EllipsisBlinking,
-  GrowingCircles,
-  RollingBlocks,
-  SpinningCircles,
-  SpinningSemicircle,
-};
+export { GrowingCircles, RollingBlocks, SpinningCircles, SpinningSemicircle };
 
 /* DEV */
 /*
-import Ellipsis2 from "./dev-components/Ellipsis2";
-import Ellipsis3 from "./dev-components/Ellipsis3";
-import Ellipsis4 from "./dev-components/Ellipsis4";
-import Ellipsis5 from "./dev-components/Ellipsis5";
 import Cinema from "./dev-components/Cinema";
-
-export { Ellipsis2, Ellipsis3, Ellipsis4, Ellipsis5, Cinema };
 */

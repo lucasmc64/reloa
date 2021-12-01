@@ -5,6 +5,8 @@ import ReloaContext from "../contexts/ReloaContext";
 
 const DivContainer = styled.div`
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
   width: ${(props) => props.size};
   height: ${(props) => props.size};
   color: ${(props) => props.colorScale};

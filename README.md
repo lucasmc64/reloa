@@ -2,6 +2,8 @@
 
 [![NPM](https://img.shields.io/npm/v/reloa.svg)](https://www.npmjs.com/package/reloa) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+> ☠️ Attention: Reloa is officially **discontinued**. Please consider using [AnimarteJS](https://gitlab.com/digital-dreams/animarte_js) instead.
+
 ## What is Reloa?
 
 Reloa is a set of loading animations for websites using React, providing a quick and elegant solution for times when a user interaction takes a while to complete.
